@@ -1,3 +1,5 @@
+//TODO: This will be removed
+
 //Double constants
 const double fontSize = 24;
 
