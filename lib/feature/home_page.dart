@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedexbootcamp/utils/constant.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,9 +11,9 @@ class HomePage extends StatelessWidget {
         child: Scaffold(
           body: Center(
             child: Text(
-              "This is a HomePage",
+              homePage,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: fontSize,
                 color: Colors.blue,
                 fontWeight: FontWeight.bold,
               ),
