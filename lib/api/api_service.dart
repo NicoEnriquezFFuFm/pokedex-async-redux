@@ -2,9 +2,9 @@ import 'package:pokedexbootcamp/api/api_client.dart';
 import 'package:pokedexbootcamp/api/handler/pokemon_api.dart';
 
 class ApiService {
-  static final ApiService _apiService = ApiService._internal(); //tells that its single use
+  static final ApiService _apiService = ApiService._internal();
 
-  factory ApiService() => _apiService; //global point reuse
+  factory ApiService() => _apiService;
 
   ApiService._internal();
 
