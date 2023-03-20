@@ -14,5 +14,5 @@ class ApiService {
 
   PokemonApi? _pokemonApi;
 
-  PokemonApi get pokemonApi => _pokemonApi ??= PokemonApi(apiClient: _apiClient, baseUri: _baseUrl);
+  PokemonApi get pokemonApi => _pokemonApi ??= PokemonApi(apiClient: _apiClient, baseUrl: _baseUrl);
 }
