@@ -11,7 +11,7 @@ class Moves with _$Moves {
 
   const factory Moves({
     @JsonKey(name: "move") Move? move,
-    @JsonKey(name: 'version_group_details') VersionGroupDetail? versionGroupDetails,
+    @JsonKey(name: 'version_group_details') List<VersionGroupDetail>? versionGroupDetails,
   }) = _Moves;
 
   factory Moves.fromJson(Map<String, dynamic> json) => _$MovesFromJson(json);

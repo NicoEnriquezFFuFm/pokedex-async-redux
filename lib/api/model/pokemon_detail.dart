@@ -9,12 +9,12 @@ part 'pokemon_detail.g.dart';
 @freezed
 class PokemonDetail with _$PokemonDetail {
   factory PokemonDetail({
-    @JsonKey(name: "height") int? height,
-    @JsonKey(name: "weight") int? weight,
-    @JsonKey(name: "base_experience") int? baseExperience,
-    @JsonKey(name: "abilities") Abilities? abilities,
-    @JsonKey(name: "moves") Moves? moves,
-    @JsonKey(name: "stats") Stats? stats,
+    @JsonKey(name: "height") required int height,
+    @JsonKey(name: "weight") required int weight,
+    @JsonKey(name: "base_experience") required int baseExperience,
+    @JsonKey(name: "abilities") List<Abilities>? abilities,
+    @JsonKey(name: "moves") List<Moves>? moves,
+    @JsonKey(name: "stats") List<Stats>? stats,
   }) = _PokemonDetail;
 
   factory PokemonDetail.fromJson(Map<String, dynamic> json) => _$PokemonDetailFromJson(json);
