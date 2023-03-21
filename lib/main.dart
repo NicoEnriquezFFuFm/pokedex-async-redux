@@ -11,6 +11,7 @@ Future<void> main() async {
     initialState: AppState(),
     actionObservers: kReleaseMode ? null : [ConsoleActionObserver<AppState>()],
   );
+
   runApp(
     StoreProvider(
       store: store,
