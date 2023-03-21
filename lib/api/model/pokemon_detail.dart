@@ -6,6 +6,7 @@ import 'package:pokedexbootcamp/api/model/pokemon_stats.dart';
 part 'pokemon_detail.freezed.dart';
 part 'pokemon_detail.g.dart';
 
+
 @freezed
 class PokemonDetail with _$PokemonDetail {
   factory PokemonDetail({

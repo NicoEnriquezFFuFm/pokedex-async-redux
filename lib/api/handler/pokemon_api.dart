@@ -15,13 +15,12 @@ class PokemonApi {
   final ApiClient apiClient;
   final Uri baseUrl;
 
-  Future<PokemonDetail> getPokemonDetails({required String id}) async {
+  Future<PokemonDetail> getPokemonDetails({required String name}) async {
     final uri = baseUrl.replace(
-      path: '${baseUrl.path}/pokemon/${id}',
+      path: '${baseUrl.path}/pokemon/$name',
     );
 
     Response response = await apiClient.dio.getUri(uri);
-    PokemonDetail pokeResponse = PokemonDetail.fromJson(response.data);
-    return pokeResponse;
+    return PokemonDetail.fromJson(response.data);
   }
 }

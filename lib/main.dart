@@ -14,7 +14,7 @@ Future<void> main() async {
   );
 
   //TODO: Delete this
-  final pokemons = await ApiService().pokemonApi.getPokemonDetails(id: '1');
+  final pokemons = await ApiService().pokemonApi.getPokemonDetails(name: 'bulbasaur');
   pokemons;
 
   runApp(
