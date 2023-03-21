@@ -12,8 +12,6 @@ class PokemonApi {
   final ApiClient apiClient;
   final Uri baseUrl;
 
-  // TODO: to be continued
-
   Future<List<Pokemon>> getPokemonList({required String offset, required String limit}) async {
     final queryParam = <String, dynamic>{};
 
