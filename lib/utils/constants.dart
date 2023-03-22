@@ -4,4 +4,6 @@
 const double fontSize = 24;
 
 //String constants
-const String homePage = "This is a HomePage";
+const homePage = "This is a HomePage";
+const offSet = '0';
+const limit = '151';
