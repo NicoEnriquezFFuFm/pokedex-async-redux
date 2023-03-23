@@ -18,7 +18,7 @@ class GetPokemonsAction extends ReduxAction<AppState> {
 class GetPokemonsDetailAction extends ReduxAction<AppState> {
   @override
   Future<AppState> reduce() async {
-    final pokeDetail = await ApiService().pokemonApi.getPokemonDetails(name: "bulbasaur");
+    final pokeDetail = await ApiService().pokemonApi.getPokemonDetails(name: pokemonTestName);
 
     return state.copyWith(pokeDetail: pokeDetail);
   }
