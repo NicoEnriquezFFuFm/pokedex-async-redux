@@ -9,7 +9,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    StoreProvider.dispatch<AppState>(context, GetPokemonDetailAction());
+    //TODO: Will be Deleted
+    StoreProvider.dispatch<AppState>(context, GetPokemonDetailAction(pokemonNameTest: pokemonNameTest));
 
     return const MaterialApp(
       home: SafeArea(
