@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:async_redux/async_redux.dart';
 import 'package:pokedexbootcamp/api/api_service.dart';
 import 'package:pokedexbootcamp/state/app_state.dart';
@@ -10,5 +12,14 @@ class GetPokemonsAction extends ReduxAction<AppState> {
     final pokemons = await ApiService().pokemonApi.getPokemonList(offset: offSet, limit: limit);
 
     return state.copyWith(pokemons: pokemons);
+  }
+}
+
+class GetPokemonsDetailAction extends ReduxAction<AppState> {
+  @override
+  Future<AppState> reduce() async {
+    final pokeDetail = await ApiService().pokemonApi.getPokemonDetails(name: "bulbasaur");
+
+    return state.copyWith(pokeDetail: pokeDetail);
   }
 }
