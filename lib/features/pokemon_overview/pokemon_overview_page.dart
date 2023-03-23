@@ -11,6 +11,7 @@ class PokemonOverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: will delete this
     pokemons;
     return const Placeholder();
   }
