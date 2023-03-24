@@ -13,9 +13,7 @@ class PokemonOverviewVmFactory extends VmFactory<AppState, PokemonOverviewConnec
 class PokemonOverviewVm extends Vm {
   PokemonOverviewVm({
     required this.pokemons,
-  }) : super(equals: [
-          pokemons
-        ]);
+  }) : super(equals: [pokemons]);
 
   final List<Pokemon> pokemons;
 }
