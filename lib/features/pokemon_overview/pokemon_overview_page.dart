@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pokedexbootcamp/api/model/pokemon.dart';
 import 'package:pokedexbootcamp/utils/constants.dart';
 import 'package:pokedexbootcamp/utils/theme.dart';
+import 'package:pokedexbootcamp/widgets/overview_widget.dart';
 
 class PokemonOverviewPage extends StatelessWidget {
-  const PokemonOverviewPage({
+  PokemonOverviewPage({
     Key? key,
     required this.pokemons,
   }) : super(key: key);
@@ -26,31 +27,13 @@ class PokemonOverviewPage extends StatelessWidget {
               ),
             ),
           ),
-          body: pokemons == null
-              ? const CircularProgressIndicator()
-              : ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: pokemons.length,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        GestureDetector(
-                          //TODO: onTap will navigate to the details of the pokemon
-                          onTap: null,
-                          child: ListTile(
-                            title: Text(
-                              pokemons[index].name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: fontSizePokedexOverview,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const Divider(),
-                      ],
-                    );
-                  }),
+          body: ListView.builder(
+              shrinkWrap: true,
+              itemCount: pokemons.length,
+              itemBuilder: (context, index) {
+                final pokemon = pokemons[index];
+                return PokemonOverview(pokemonName: pokemon);
+              }),
         ),
       ),
     );
