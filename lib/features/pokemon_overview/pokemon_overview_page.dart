@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokedexbootcamp/api/model/pokemon.dart';
+import 'package:pokedexbootcamp/utils/async.dart';
 import 'package:pokedexbootcamp/utils/constants.dart';
 import 'package:pokedexbootcamp/utils/theme.dart';
-import 'package:pokedexbootcamp/widgets/overview_widget.dart';
 
 class PokemonOverviewPage extends StatelessWidget {
   PokemonOverviewPage({
@@ -10,7 +10,7 @@ class PokemonOverviewPage extends StatelessWidget {
     required this.pokemons,
   }) : super(key: key);
 
-  final List<Pokemon> pokemons;
+  final Async<List<Pokemon>> pokemons;
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +27,7 @@ class PokemonOverviewPage extends StatelessWidget {
               ),
             ),
           ),
-          body: ListView.builder(
-              shrinkWrap: true,
-              itemCount: pokemons.length,
-              itemBuilder: (context, index) {
-                final pokemon = pokemons[index];
-                return PokemonOverview(pokemonName: pokemon);
-              }),
+          body: Text("Hello World"),
         ),
       ),
     );

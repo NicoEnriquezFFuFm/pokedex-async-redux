@@ -9,6 +9,7 @@ const double fontSizeAppBar = 30;
 const homePage = "This is a HomePage";
 const offSet = '0';
 const limit = '20';
+const errorMessage = 'Something went wrong!';
 
 //TODO will delete later
 const pokemonName = "bulbasaur";
