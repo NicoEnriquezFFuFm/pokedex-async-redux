@@ -9,7 +9,7 @@ class PokemonOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var extractNumbers = pokemonName.url.replaceAll(new RegExp(r'[^0-9]'), '');
+    var extractNumbers = pokemonName.url.replaceAll(RegExp(r'[^0-9]'), '');
     var extractPokemonId = extractNumbers.substring(1);
 
     return Column(
