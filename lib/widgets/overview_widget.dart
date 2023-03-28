@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pokedexbootcamp/api/model/pokemon.dart';
+import 'package:pokedexbootcamp/features/pokemon_details/pokemon_details_connector.dart';
 import 'package:pokedexbootcamp/utils/constants.dart';
 
 class PokemonOverview extends StatelessWidget {
-  const PokemonOverview({Key? key, required this.pokemonName}) : super(key: key);
+  const PokemonOverview({
+    Key? key,
+    required this.pokemonName,
+  }) : super(key: key);
 
   final Pokemon pokemonName;
 
@@ -15,27 +19,34 @@ class PokemonOverview extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          //TODO: onTap will navigate to the details of the pokemon
-          onTap: null,
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PokemonDetailsConnector(
+                pokemonName: pokemonName.name,
+              ),
+            ),
+          ),
           child: Container(
             width: widthConstant,
             height: heightConstant,
             decoration: BoxDecoration(
-              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white70,
               image: DecorationImage(
                 image: NetworkImage(imageURL + extractPokemonId + pngExtension),
                 fit: BoxFit.cover,
               ),
             ),
-            child: Card(
-              color: Colors.transparent,
-              child: Container(
-                alignment: AlignmentDirectional.topCenter,
-                child: Text(
+            child: Column(
+              children: [
+                Text(
                   pokemonName.name,
-                  style: const TextStyle(fontSize: fontSize),
+                  style: const TextStyle(
+                    fontSize: fontSize,
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ),
