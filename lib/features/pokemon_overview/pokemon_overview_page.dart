@@ -8,8 +8,8 @@ import 'package:pokedexbootcamp/widgets/overview_widget.dart';
 
 class PokemonOverviewPage extends StatelessWidget {
   const PokemonOverviewPage({
-    Key? key,
     required this.pokemons,
+    Key? key,
   }) : super(key: key);
 
   final Async<List<Pokemon>> pokemons;

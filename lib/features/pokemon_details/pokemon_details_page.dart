@@ -6,25 +6,15 @@ import 'package:pokedexbootcamp/utils/theme.dart';
 import 'package:pokedexbootcamp/widgets/image_widget_pokemon_details.dart';
 import 'package:pokedexbootcamp/widgets/row_description.dart';
 
-class PokemonDetailsPage extends StatefulWidget {
+class PokemonDetailsPage extends StatelessWidget {
   const PokemonDetailsPage({
-    Key? key,
     required this.pokemonDetail,
     required this.pokemonName,
+    Key? key,
   }) : super(key: key);
 
   final Async<PokemonDetail?> pokemonDetail;
   final String pokemonName;
-
-  @override
-  State<StatefulWidget> createState() => _PokemonDetailsPageState();
-}
-
-class _PokemonDetailsPageState extends State<PokemonDetailsPage> {
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,22 +23,18 @@ class _PokemonDetailsPageState extends State<PokemonDetailsPage> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => _navigateBackToHome(context),
         ),
         title: const Text(
           pokemonAppBarTitle,
-          style: TextStyle(
-            fontSize: fontSizeAppBar,
-          ),
+          style: TextStyle(fontSize: fontSizeAppBar),
         ),
         centerTitle: true,
       ),
-      body: widget.pokemonDetail.when(
+      body: pokemonDetail.when(
         error: (errorMessage) {
           WidgetsBinding.instance.addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage));
-          return const Center(
-            child: Text(pokemonOfflineMessageLabel),
-          );
+          return const Center(child: Text(pokemonOfflineMessageLabel));
         },
         (data) => Center(
           child: Column(
@@ -57,7 +43,7 @@ class _PokemonDetailsPageState extends State<PokemonDetailsPage> {
             children: [
               Center(
                 child: Text(
-                  widget.pokemonName,
+                  pokemonName,
                   style: const TextStyle(
                     fontSize: fontSizePokemonDetailName,
                     fontWeight: FontWeight.bold,
@@ -68,20 +54,20 @@ class _PokemonDetailsPageState extends State<PokemonDetailsPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  PokemonDetailsImages(pokeImage: data!.sprite!.frontDefault!),
-                  PokemonDetailsImages(pokeImage: data.sprite!.backDefault!),
-                  PokemonDetailsImages(pokeImage: data.sprite!.frontShiny!),
-                  PokemonDetailsImages(pokeImage: data.sprite!.backShiny!),
+                  PokemonDetailsImages(pokeImage: data?.sprite.frontDefault),
+                  PokemonDetailsImages(pokeImage: data?.sprite.backDefault),
+                  PokemonDetailsImages(pokeImage: data?.sprite.frontShiny),
+                  PokemonDetailsImages(pokeImage: data?.sprite.backShiny),
                 ],
               ),
               const Divider(),
-              RowDescription(title: movePokemonDetailLabel, description: data.moves!.first.move!.name.toString()),
+              RowDescription(titleLabel: movePokemonDetailLabel, description: data!.moves.first.move!.name.toString()),
               RowDescription(
-                  title: abilityPokemonDetailLabel, description: data.abilities!.first.ability.name.toString()),
-              RowDescription(title: heightPokemonDetailLabel, description: data.height.toString()),
-              RowDescription(title: baseExperiencePokemonDetailLabel, description: data.baseExperience.toString()),
-              RowDescription(title: weightPokemonDetailLabel, description: data.weight.toString()),
-              RowDescription(title: typepokemonDetailLabel, description: data.types!.first.type!.name.toString()),
+                  titleLabel: abilityPokemonDetailLabel, description: data.abilities.first.ability.name.toString()),
+              RowDescription(titleLabel: heightPokemonDetailLabel, description: data.height.toString()),
+              RowDescription(titleLabel: baseExperiencePokemonDetailLabel, description: data.baseExperience.toString()),
+              RowDescription(titleLabel: weightPokemonDetailLabel, description: data.weight.toString()),
+              RowDescription(titleLabel: typepokemonDetailLabel, description: data.types.first.type.name.toString()),
             ],
           ),
         ),
@@ -94,5 +80,9 @@ class _PokemonDetailsPageState extends State<PokemonDetailsPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(errorMessage ?? emptyString)),
     );
+  }
+
+  void _navigateBackToHome(BuildContext context) {
+    Navigator.of(context).pop();
   }
 }

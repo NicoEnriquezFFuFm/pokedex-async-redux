@@ -14,11 +14,11 @@ class PokemonDetail with _$PokemonDetail {
     @JsonKey(name: "height") required int height,
     @JsonKey(name: "weight") required int weight,
     @JsonKey(name: "base_experience") required int baseExperience,
-    @JsonKey(name: "abilities") List<Abilities>? abilities,
-    @JsonKey(name: "moves") List<Moves>? moves,
-    @JsonKey(name: "stats") List<Stats>? stats,
-    @JsonKey(name: "types") List<PokemonTypes>? types,
-    @JsonKey(name: "sprites") PokemonSprites? sprite,
+    @JsonKey(name: "abilities") required List<Abilities> abilities,
+    @JsonKey(name: "moves") required List<Moves> moves,
+    @JsonKey(name: "stats") required List<Stats> stats,
+    @JsonKey(name: "types") required List<PokemonTypes> types,
+    @JsonKey(name: "sprites") required PokemonSprites sprite,
   }) = _PokemonDetail;
 
   factory PokemonDetail.fromJson(Map<String, dynamic> json) => _$PokemonDetailFromJson(json);

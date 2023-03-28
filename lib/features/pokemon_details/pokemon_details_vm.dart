@@ -8,13 +8,13 @@ import 'package:pokedexbootcamp/utils/constants.dart';
 
 class PokemonDetailsVmFactory extends VmFactory<AppState, PokemonDetailsConnector> {
   @override
-  Vm? fromStore() => PokemonDetailsVm(pokemonDetail: _pokemonDetail());
+  Vm fromStore() => PokemonDetailsVm(pokemonDetail: _pokemonDetail());
 
-  Async<PokemonDetail?> _pokemonDetail() {
+  Async<PokemonDetail> _pokemonDetail() {
     if (state.wait.isWaitingFor(GetPokemonDetailAction.key)) return const Async.loading();
     if (state.pokeDetail == null) return const Async.error(errorMessage);
 
-    return Async(state.pokeDetail);
+    return Async(state.pokeDetail!);
   }
 }
 
@@ -23,5 +23,5 @@ class PokemonDetailsVm extends Vm {
     required this.pokemonDetail,
   }) : super(equals: [pokemonDetail]);
 
-  final Async<PokemonDetail?> pokemonDetail;
+  final Async<PokemonDetail> pokemonDetail;
 }

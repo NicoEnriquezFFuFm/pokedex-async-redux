@@ -6,8 +6,8 @@ part 'pokemon_type.g.dart';
 @freezed
 class PokemonType with _$PokemonType {
   factory PokemonType({
-    @JsonKey(name: "name") String? name,
-    @JsonKey(name: "url") String? url,
+    @JsonKey(name: "name") required String name,
+    @JsonKey(name: "url") required String url,
   }) = _PokemonType;
 
   factory PokemonType.fromJson(Map<String, dynamic> json) => _$PokemonTypeFromJson(json);

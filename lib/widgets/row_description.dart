@@ -3,12 +3,12 @@ import 'package:pokedexbootcamp/utils/constants.dart';
 
 class RowDescription extends StatelessWidget {
   const RowDescription({
-    super.key,
-    required this.title,
+    required this.titleLabel,
     required this.description,
+    super.key,
   });
 
-  final String title;
+  final String titleLabel;
   final String description;
 
   @override
@@ -18,8 +18,11 @@ class RowDescription extends StatelessWidget {
         Row(
           children: [
             Text(
-              "$title:",
-              style: const TextStyle(fontSize: fontSize, fontWeight: FontWeight.w600),
+              titleLabel,
+              style: const TextStyle(
+                fontSize: fontSize,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             const SizedBox(width: widthSizedBoxDivider),
             Text(

@@ -3,12 +3,12 @@ import 'package:pokedexbootcamp/utils/constants.dart';
 import 'package:pokedexbootcamp/utils/theme.dart';
 
 class PokemonDetailsImages extends StatelessWidget {
-  const PokemonDetailsImages({
+  PokemonDetailsImages({
+    required this.pokeImage,
     Key? key,
-    this.pokeImage,
   }) : super(key: key);
 
-  final dynamic pokeImage;
+  var pokeImage;
 
   @override
   Widget build(BuildContext context) {

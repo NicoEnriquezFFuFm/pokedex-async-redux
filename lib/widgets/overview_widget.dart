@@ -5,8 +5,8 @@ import 'package:pokedexbootcamp/utils/constants.dart';
 
 class PokemonOverview extends StatelessWidget {
   const PokemonOverview({
-    Key? key,
     required this.pokemonName,
+    Key? key,
   }) : super(key: key);
 
   final Pokemon pokemonName;
@@ -19,14 +19,7 @@ class PokemonOverview extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => PokemonDetailsConnector(
-                pokemonName: pokemonName.name,
-              ),
-            ),
-          ),
+          onTap: () => _navigateToPokemonDetail(context),
           child: Container(
             width: widthConstant,
             height: heightConstant,
@@ -42,15 +35,22 @@ class PokemonOverview extends StatelessWidget {
               children: [
                 Text(
                   pokemonName.name,
-                  style: const TextStyle(
-                    fontSize: fontSize,
-                  ),
+                  style: const TextStyle(fontSize: fontSize),
                 ),
               ],
             ),
           ),
         ),
       ],
+    );
+  }
+
+  void _navigateToPokemonDetail(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PokemonDetailsConnector(pokemonName: pokemonName.name),
+      ),
     );
   }
 }
