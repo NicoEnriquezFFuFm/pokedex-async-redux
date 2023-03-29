@@ -8,7 +8,7 @@ class PokemonDetailsImages extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  var pokeImage;
+  final String pokeImage;
 
   @override
   Widget build(BuildContext context) {
