@@ -33,3 +33,8 @@ class GetPokemonDetailAction extends ReduxAction<AppState> {
     return state.copyWith(pokeDetail: pokemonDetail);
   }
 }
+
+class DisposePokemonDetailAction extends ReduxAction<AppState> {
+  @override
+  AppState reduce() => state.copyWith(pokeDetail: null);
+}

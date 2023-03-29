@@ -13,7 +13,7 @@ class PokemonDetailsPage extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Async<PokemonDetail?> pokemonDetail;
+  final Async<PokemonDetail> pokemonDetail;
   final String pokemonName;
 
   @override
@@ -54,14 +54,14 @@ class PokemonDetailsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  PokemonDetailsImages(pokeImage: data!.sprite.frontDefault),
-                  PokemonDetailsImages(pokeImage: data!.sprite.backDefault),
-                  PokemonDetailsImages(pokeImage: data!.sprite.frontShiny),
-                  PokemonDetailsImages(pokeImage: data!.sprite.backShiny),
+                  PokemonDetailsImages(pokeImage: data.sprite.frontDefault),
+                  PokemonDetailsImages(pokeImage: data.sprite.backDefault),
+                  PokemonDetailsImages(pokeImage: data.sprite.frontShiny),
+                  PokemonDetailsImages(pokeImage: data.sprite.backShiny),
                 ],
               ),
               const Divider(),
-              RowDescription(titleLabel: movePokemonDetailLabel, description: data!.moves.first.move!.name.toString()),
+              RowDescription(titleLabel: movePokemonDetailLabel, description: data.moves.first.move!.name.toString()),
               RowDescription(
                   titleLabel: abilityPokemonDetailLabel, description: data.abilities.first.ability.name.toString()),
               RowDescription(titleLabel: heightPokemonDetailLabel, description: data.height.toString()),
