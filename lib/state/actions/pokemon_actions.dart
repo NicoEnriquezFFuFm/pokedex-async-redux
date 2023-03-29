@@ -19,9 +19,9 @@ class GetPokemonsAction extends LoadingAction {
   }
 }
 
-
 //Getting of pokemon details from pokemon api
 class GetPokemonDetailAction extends ReduxAction<AppState> {
+  static const key = "get-pokemon-detail-action";
   GetPokemonDetailAction({required this.pokemonName});
 
   final String pokemonName;
@@ -32,4 +32,9 @@ class GetPokemonDetailAction extends ReduxAction<AppState> {
 
     return state.copyWith(pokeDetail: pokemonDetail);
   }
+}
+
+class DisposePokemonDetailAction extends ReduxAction<AppState> {
+  @override
+  AppState reduce() => state.copyWith(pokeDetail: null);
 }
