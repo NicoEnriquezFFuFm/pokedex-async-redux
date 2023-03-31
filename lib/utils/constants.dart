@@ -7,7 +7,6 @@ const double fontSizePokedexOverview = 22;
 const double fontSizeAppBar = 30;
 const double widthConstant = 400;
 const double heightConstant = 400;
-const int crossAxisCountValue = 2;
 const double spriteHeightSize = 250;
 const double spriteWeightSize = 220;
 const double marginInsetsImage = 13;
@@ -15,6 +14,14 @@ const double paddingInsetsImage = 13;
 const double borderWidthImage = 15;
 const double borderRadiusCircular = 5;
 const double widthSizedBoxDivider = 10;
+const double paddingVertical = 10.0;
+const double paddingHorizontal = 20.0;
+const double radiusCircularSearchBar = 20.0;
+const double heightSizedBoxDivider = 10;
+
+//int constants
+const int milliSecondsValue = 1000;
+const int crossAxisCountValue = 2;
 
 //String constants
 const homePage = "This is a HomePage";
@@ -37,5 +44,5 @@ const weightPokemonDetailLabel = "Weight";
 const baseExperiencePokemonDetailLabel = "BaseExperience";
 const abilityPokemonDetailLabel = "Ability(s)";
 const typepokemonDetailLabel = "Type";
-//TODO will delete later
-const pokemonName = "bulbasaur";
+const String hintTextSearchBar = "Search Pokemon here";
+const noSearchResultFoundlabel = "No search results found!";

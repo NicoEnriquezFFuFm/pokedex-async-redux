@@ -34,6 +34,23 @@ class GetPokemonDetailAction extends ReduxAction<AppState> {
   }
 }
 
+class SearchPokemonsAction extends ReduxAction<AppState> {
+  SearchPokemonsAction({required this.query});
+
+  final String query;
+
+  @override
+  AppState reduce() {
+    final filterSearch = state.pokemons.where((element) => element.name.contains(query)).toList();
+    return state.copyWith(searchedPokemons: filterSearch);
+  }
+}
+
+class ClearSearchedPokemonsAction extends ReduxAction<AppState> {
+  @override
+  AppState reduce() => state.copyWith(searchedPokemons: List.empty());
+}
+
 class DisposePokemonDetailAction extends ReduxAction<AppState> {
   @override
   AppState reduce() => state.copyWith(pokeDetail: null);
