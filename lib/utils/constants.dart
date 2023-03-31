@@ -15,6 +15,9 @@ const double paddingInsetsImage = 13;
 const double borderWidthImage = 15;
 const double borderRadiusCircular = 5;
 const double widthSizedBoxDivider = 10;
+const double paddingVertical = 10.0;
+const double paddingHorizontal = 20.0;
+const double radiusCircularSearchBar = 20.0;
 
 //String constants
 const homePage = "This is a HomePage";
@@ -37,5 +40,6 @@ const weightPokemonDetailLabel = "Weight";
 const baseExperiencePokemonDetailLabel = "BaseExperience";
 const abilityPokemonDetailLabel = "Ability(s)";
 const typepokemonDetailLabel = "Type";
-//TODO will delete later
-const pokemonName = "bulbasaur";
+const String hintTextSearchBar = "Search Pokemon here";
+const noSearchResultFoundlabel = "No search results found!";
+

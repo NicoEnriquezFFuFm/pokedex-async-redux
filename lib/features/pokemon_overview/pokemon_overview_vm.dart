@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:async_redux/async_redux.dart';
 import 'package:pokedexbootcamp/api/model/pokemon.dart';
 import 'package:pokedexbootcamp/features/pokemon_overview/pokemon_overview_connector.dart';
@@ -8,7 +10,12 @@ import 'package:pokedexbootcamp/utils/constants.dart';
 
 class PokemonOverviewVmFactory extends VmFactory<AppState, PokemonOverviewConnector> {
   @override
-  Vm fromStore() => PokemonOverviewVm(pokemons: _pokemons());
+  Vm fromStore() => PokemonOverviewVm(
+        pokemons: _pokemons(),
+        onSearch: (query) => dispatch(SearchPokemonsActions(query: query)),
+        onDelete: () => dispatch(ClearSearchedPokemonsAction()),
+        pokemonSearch: state.pokemonSearch,
+      );
 
   Async<List<Pokemon>> _pokemons() {
     if (state.wait.isWaitingFor(GetPokemonsAction.key)) return const Async.loading();
@@ -20,8 +27,14 @@ class PokemonOverviewVmFactory extends VmFactory<AppState, PokemonOverviewConnec
 
 class PokemonOverviewVm extends Vm {
   PokemonOverviewVm({
+    required this.onSearch,
+    required this.onDelete,
     required this.pokemons,
-  }) : super(equals: [pokemons]);
+    required this.pokemonSearch,
+  }) : super(equals: [pokemons, pokemonSearch]);
 
   final Async<List<Pokemon>> pokemons;
+  final List<Pokemon> pokemonSearch;
+  final Function(String) onSearch;
+  final VoidCallback onDelete;
 }
