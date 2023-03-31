@@ -34,7 +34,7 @@ class PokemonOverview extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  pokemonName.name,
+                  pokemonName.name.isNotEmpty ? pokemonName.name : noSearchResultFoundlabel,
                   style: const TextStyle(fontSize: fontSize),
                 ),
               ],

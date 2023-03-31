@@ -34,8 +34,8 @@ class GetPokemonDetailAction extends ReduxAction<AppState> {
   }
 }
 
-class SearchPokemonsActions extends ReduxAction<AppState> {
-  SearchPokemonsActions({required this.query});
+class SearchPokemonsAction extends ReduxAction<AppState> {
+  SearchPokemonsAction({required this.query});
 
   final String query;
 
@@ -49,7 +49,7 @@ class SearchPokemonsActions extends ReduxAction<AppState> {
 
 class ClearSearchedPokemonsAction extends ReduxAction<AppState> {
   @override
-  AppState reduce() => state.copyWith(pokemonSearch: []);
+  AppState reduce() => state.copyWith(pokemonSearch: List.empty());
 }
 
 class DisposePokemonDetailAction extends ReduxAction<AppState> {

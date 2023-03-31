@@ -3,7 +3,7 @@ import 'package:pokedexbootcamp/utils/constants.dart';
 import 'package:pokedexbootcamp/utils/theme.dart';
 
 class PokemonDetailsImages extends StatelessWidget {
-  PokemonDetailsImages({
+  const PokemonDetailsImages({
     required this.pokeImage,
     Key? key,
   }) : super(key: key);

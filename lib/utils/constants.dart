@@ -42,4 +42,3 @@ const abilityPokemonDetailLabel = "Ability(s)";
 const typepokemonDetailLabel = "Type";
 const String hintTextSearchBar = "Search Pokemon here";
 const noSearchResultFoundlabel = "No search results found!";
-

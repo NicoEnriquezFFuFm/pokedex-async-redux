@@ -10,7 +10,7 @@ import 'package:pokedexbootcamp/widgets/overview_widget.dart';
 import 'package:pokedexbootcamp/widgets/search_bar_widget.dart';
 
 class PokemonOverviewPage extends StatefulWidget {
-  PokemonOverviewPage({
+  const PokemonOverviewPage({
     required this.pokemons,
     required this.search,
     required this.delete,
@@ -30,7 +30,7 @@ class PokemonOverviewPage extends StatefulWidget {
 class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
   late TextEditingController inputController = TextEditingController();
   late bool isSearching;
-  late Timer _debounce;
+  late Timer debounce;
 
   @override
   void initState() {
@@ -102,7 +102,7 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
   }
 
   void _searchPokemon(String text) {
-    _debounce = Timer(const Duration(milliseconds: 600), () {
+    debounce = Timer(const Duration(milliseconds: 600), () {
       setState(() {
         widget.search(text);
         isSearching = true;

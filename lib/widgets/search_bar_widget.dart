@@ -22,6 +22,7 @@ class SearchBarOverview extends StatelessWidget {
           borderRadius: BorderRadius.circular(radiusCircularSearchBar),
         ),
         hintText: hintTextSearchBar,
+        prefixIcon: const Icon(Icons.search),
         suffixIcon: IconButton(
           onPressed: deleteInput,
           icon: const Icon(Icons.clear),

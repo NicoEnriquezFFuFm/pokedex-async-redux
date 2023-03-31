@@ -12,7 +12,7 @@ class PokemonOverviewVmFactory extends VmFactory<AppState, PokemonOverviewConnec
   @override
   Vm fromStore() => PokemonOverviewVm(
         pokemons: _pokemons(),
-        onSearch: (query) => dispatch(SearchPokemonsActions(query: query)),
+        onSearch: (query) => dispatch(SearchPokemonsAction(query: query)),
         onDelete: () => dispatch(ClearSearchedPokemonsAction()),
         pokemonSearch: state.pokemonSearch,
       );
