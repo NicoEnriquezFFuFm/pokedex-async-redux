@@ -12,16 +12,16 @@ import 'package:pokedexbootcamp/widgets/search_bar_widget.dart';
 class PokemonOverviewPage extends StatefulWidget {
   const PokemonOverviewPage({
     required this.pokemons,
-    required this.search,
-    required this.delete,
-    required this.pokemonSearch,
+    required this.searchedPokemons,
+    required this.onDeleteInput,
+    required this.onSearchPokemon,
     Key? key,
   }) : super(key: key);
 
   final Async<List<Pokemon>> pokemons;
-  final List<Pokemon> pokemonSearch;
-  final Function(String) search;
-  final VoidCallback delete;
+  final List<Pokemon> searchedPokemons;
+  final Function(String) onSearchPokemon;
+  final VoidCallback onDeleteInput;
 
   @override
   State<StatefulWidget> createState() => _PokemonOverviewPageState();
@@ -30,7 +30,7 @@ class PokemonOverviewPage extends StatefulWidget {
 class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
   late TextEditingController inputController = TextEditingController();
   late bool isSearching;
-  late Timer debounce;
+  late Timer _debounce;
 
   @override
   void initState() {
@@ -41,8 +41,10 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
 
   @override
   void dispose() {
-    super.dispose();
     inputController.dispose();
+    _deleteSearchInput();
+    _debounce.cancel();
+    super.dispose();
   }
 
   @override
@@ -65,13 +67,13 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
           );
         },
         (data) {
-          if (isSearching) data = widget.pokemonSearch;
+          if (isSearching) data = widget.searchedPokemons;
           if (data.isEmpty) {
             return Column(
               children: [
                 SearchBarOverview(
-                  searchFuncPokemon: _searchPokemon,
-                  deleteInput: _deleteSearchInput,
+                  onSearchPokemon: _searchPokemon,
+                  onDeleteInput: _deleteSearchInput,
                   inputController: inputController,
                 ),
                 const SizedBox(height: heightSizedBoxDivider),
@@ -88,8 +90,8 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
             child: Column(
               children: [
                 SearchBarOverview(
-                  searchFuncPokemon: _searchPokemon,
-                  deleteInput: _deleteSearchInput,
+                  onSearchPokemon: _searchPokemon,
+                  onDeleteInput: _deleteSearchInput,
                   inputController: inputController,
                 ),
                 GridView.builder(
@@ -119,19 +121,15 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
   }
 
   void _searchPokemon(String text) {
-    debounce = Timer(const Duration(milliseconds: 1000), () {
-      setState(() {
-        widget.search(text);
-        isSearching = true;
-      });
+    _debounce = Timer(const Duration(milliseconds: milliSecondsValue), () {
+      widget.onSearchPokemon(text);
+      setState(() => isSearching = true);
     });
   }
 
   void _deleteSearchInput() {
-    setState(() {
-      widget.delete();
-      isSearching = false;
-      inputController.clear();
-    });
+    widget.onDeleteInput;
+    inputController.clear();
+    setState(() => isSearching = false);
   }
 }

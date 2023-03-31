@@ -3,14 +3,14 @@ import 'package:pokedexbootcamp/utils/constants.dart';
 
 class SearchBarOverview extends StatelessWidget {
   const SearchBarOverview({
-    required this.searchFuncPokemon,
-    required this.deleteInput,
+    required this.onSearchPokemon,
+    required this.onDeleteInput,
     required this.inputController,
     Key? key,
   }) : super(key: key);
 
-  final Function(String) searchFuncPokemon;
-  final VoidCallback deleteInput;
+  final Function(String) onSearchPokemon;
+  final VoidCallback onDeleteInput;
   final TextEditingController inputController;
 
   @override
@@ -24,7 +24,7 @@ class SearchBarOverview extends StatelessWidget {
         hintText: hintTextSearchBar,
         prefixIcon: const Icon(Icons.search),
         suffixIcon: IconButton(
-          onPressed: deleteInput,
+          onPressed: onDeleteInput,
           icon: const Icon(Icons.clear),
         ),
         contentPadding: const EdgeInsets.symmetric(
@@ -33,7 +33,7 @@ class SearchBarOverview extends StatelessWidget {
         ),
       ),
       autofocus: false,
-      onChanged: searchFuncPokemon,
+      onChanged: onSearchPokemon,
     );
   }
 }
