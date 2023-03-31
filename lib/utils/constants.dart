@@ -7,7 +7,6 @@ const double fontSizePokedexOverview = 22;
 const double fontSizeAppBar = 30;
 const double widthConstant = 400;
 const double heightConstant = 400;
-const int crossAxisCountValue = 2;
 const double spriteHeightSize = 250;
 const double spriteWeightSize = 220;
 const double marginInsetsImage = 13;
@@ -19,6 +18,10 @@ const double paddingVertical = 10.0;
 const double paddingHorizontal = 20.0;
 const double radiusCircularSearchBar = 20.0;
 const double heightSizedBoxDivider = 10;
+
+//int constants
+const int milliSecondsValue = 1000;
+const int crossAxisCountValue = 2;
 
 //String constants
 const homePage = "This is a HomePage";
