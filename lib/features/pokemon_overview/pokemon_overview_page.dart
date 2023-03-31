@@ -119,7 +119,7 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
   }
 
   void _searchPokemon(String text) {
-    debounce = Timer(const Duration(milliseconds: 600), () {
+    debounce = Timer(const Duration(milliseconds: 1000), () {
       setState(() {
         widget.search(text);
         isSearching = true;

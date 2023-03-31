@@ -14,7 +14,7 @@ class PokemonOverviewVmFactory extends VmFactory<AppState, PokemonOverviewConnec
         pokemons: _pokemons(),
         onSearch: (query) => dispatch(SearchPokemonsAction(query: query)),
         onDelete: () => dispatch(ClearSearchedPokemonsAction()),
-        pokemonSearch: state.pokemonSearch,
+        pokemonSearch: state.searchedPokemons,
       );
 
   Async<List<Pokemon>> _pokemons() {
