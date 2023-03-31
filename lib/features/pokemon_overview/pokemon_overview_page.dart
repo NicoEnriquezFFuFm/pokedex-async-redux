@@ -66,8 +66,24 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
         },
         (data) {
           if (isSearching) data = widget.pokemonSearch;
-          if (data.isEmpty) const Center(child: Text(noSearchResultFoundlabel));
-
+          if (data.isEmpty) {
+            return Column(
+              children: [
+                SearchBarOverview(
+                  searchFuncPokemon: _searchPokemon,
+                  deleteInput: _deleteSearchInput,
+                  inputController: inputController,
+                ),
+                const SizedBox(height: heightSizedBoxDivider),
+                const Center(
+                  child: Text(
+                    noSearchResultFoundlabel,
+                    style: TextStyle(fontSize: fontSize),
+                  ),
+                ),
+              ],
+            );
+          }
           return SingleChildScrollView(
             child: Column(
               children: [
@@ -82,6 +98,7 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: crossAxisCountValue),
                   itemBuilder: (_, index) {
                     final pokemon = data[index];
+
                     return PokemonOverview(pokemonName: pokemon);
                   },
                 ),

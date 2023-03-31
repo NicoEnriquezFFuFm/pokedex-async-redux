@@ -18,6 +18,7 @@ const double widthSizedBoxDivider = 10;
 const double paddingVertical = 10.0;
 const double paddingHorizontal = 20.0;
 const double radiusCircularSearchBar = 20.0;
+const double heightSizedBoxDivider = 10;
 
 //String constants
 const homePage = "This is a HomePage";
